@@ -92,3 +92,8 @@ SELECT DISTINCT v1.produto, v1.receita AS menor_receita
 FROM vendas v1
 JOIN vendas v2 ON v1.produto = v2.produto
 GROUP BY v1.produto;
+
+-- Determine o número total de matrículas para cada aluno.
+SELECT alunos.nome, matriculas.id AS total_matriculas
+FROM alunos
+LEFT JOIN matriculas ON alunos.id = matriculas.aluno_id;
