@@ -1,3 +1,8 @@
 -- Selecione todos os títulos de livros na tabela livros.
 SELECT titulo
 FROM livros;
+
+-- Selecione todos os nomes de autores nascidos antes de 1900.
+SELECT nome
+FROM autores
+WHERE YEAR(nascimento) < 1900;
