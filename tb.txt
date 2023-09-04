@@ -24,3 +24,8 @@ SELECT DISTINCT v1.produto, v1.receita + v2.receita + v3.receita AS receita_tota
 FROM vendas v1
 JOIN vendas v2 ON v1.produto = v2.produto
 JOIN vendas v3 ON v1.produto = v3.produto;
+
+-- Determine o número total de livros por autor.
+SELECT autores.nome, livros.id AS total_livros
+FROM autores
+LEFT JOIN livros ON autores.id = livros.autor_id;
