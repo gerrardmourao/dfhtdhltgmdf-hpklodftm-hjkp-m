@@ -34,3 +34,9 @@ LEFT JOIN livros ON autores.id = livros.autor_id;
 SELECT matriculas.curso, alunos.id AS total_alunos
 FROM matriculas
 JOIN alunos ON matriculas.aluno_id = alunos.id;
+
+-- Liste a média de receita para cada produto.
+SELECT DISTINCT v1.produto, (v1.receita + v2.receita + v3.receita) / 3 AS media_receita
+FROM vendas v1
+JOIN vendas v2 ON v1.produto = v2.produto
+JOIN vendas v3 ON v1.produto = v3.produto;
