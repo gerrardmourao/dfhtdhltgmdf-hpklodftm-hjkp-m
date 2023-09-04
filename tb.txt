@@ -29,3 +29,8 @@ JOIN vendas v3 ON v1.produto = v3.produto;
 SELECT autores.nome, livros.id AS total_livros
 FROM autores
 LEFT JOIN livros ON autores.id = livros.autor_id;
+
+-- Agrupe os alunos por curso e conte quantos alunos estão matriculados em cada curso.
+SELECT matriculas.curso, alunos.id AS total_alunos
+FROM matriculas
+JOIN alunos ON matriculas.aluno_id = alunos.id;
