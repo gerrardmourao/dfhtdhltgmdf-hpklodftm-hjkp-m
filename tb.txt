@@ -18,3 +18,9 @@ SELECT alunos.nome
 FROM alunos
 JOIN matriculas ON alunos.id = matriculas.aluno_id
 WHERE matriculas.curso = 'Engenharia de Software';
+
+-- Calcule a receita total gerada por cada produto.
+SELECT DISTINCT v1.produto, v1.receita + v2.receita + v3.receita AS receita_total
+FROM vendas v1
+JOIN vendas v2 ON v1.produto = v2.produto
+JOIN vendas v3 ON v1.produto = v3.produto;
