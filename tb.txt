@@ -40,3 +40,10 @@ SELECT DISTINCT v1.produto, (v1.receita + v2.receita + v3.receita) / 3 AS media_
 FROM vendas v1
 JOIN vendas v2 ON v1.produto = v2.produto
 JOIN vendas v3 ON v1.produto = v3.produto;
+
+-- Encontre os produtos que geraram uma receita total superior a $10.000.
+SELECT DISTINCT v1.produto, (v1.receita + v2.receita + v3.receita) AS receita_total
+FROM vendas v1
+JOIN vendas v2 ON v1.produto = v2.produto
+JOIN vendas v3 ON v1.produto = v3.produto
+HAVING receita_total > 10000;
