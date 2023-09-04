@@ -97,3 +97,11 @@ GROUP BY v1.produto;
 SELECT alunos.nome, matriculas.id AS total_matriculas
 FROM alunos
 LEFT JOIN matriculas ON alunos.id = matriculas.aluno_id;
+
+-- Identifique o produto mais vendido com base na quantidade de transações (não na receita).
+SELECT DISTINCT v1.produto, v1.id AS total_transacoes
+FROM vendas v1
+JOIN vendas v2 ON v1.produto = v2.produto
+GROUP BY v1.produto
+ORDER BY total_transacoes DESC
+LIMIT 1;
