@@ -1,2 +1,2 @@
-exerciciosDeFixacao20231024.sql 
+ExerciciosDeFixacao20231024.sql 
 
