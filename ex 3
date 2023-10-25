@@ -1,0 +1,12 @@
+-- Trigger para atualizar o nome do cliente na tabela Clientes e impedir NULL ou vazio
+CREATE TRIGGER BeforeUpdateCliente
+BEFORE UPDATE ON Clientes
+FOR EACH ROW
+BEGIN
+    IF NEW.nome IS NULL OR NEW.nome = '' THEN
+        INSERT INTO Auditoria (mensagem)
+        VALUES (CONCAT('Tentativa de atualização do cliente com nome vazio ou NULL. Data e hora: ', NOW()));
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Não é permitido atualizar o nome do cliente para vazio ou NULL';
+    END IF;
+END;
