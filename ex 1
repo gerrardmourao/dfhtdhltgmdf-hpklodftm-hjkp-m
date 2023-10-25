@@ -1,0 +1,10 @@
+DELIMITER //
+
+-- Trigger para inserir um novo cliente na tabela Clientes e registrar na tabela Auditoria
+CREATE TRIGGER AfterInsertCliente
+AFTER INSERT ON Clientes
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (mensagem)
+    VALUES (CONCAT('Novo cliente adicionado: ', NEW.nome, '. Data e hora da inserção: ', NOW()));
+END;
